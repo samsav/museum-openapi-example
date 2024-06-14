@@ -13,6 +13,19 @@ info:
 servers:
   - url: "https://api.fake-museum-example.com/v1.1"
 paths:
+  /example:
+    get: 
+      summary: Example summary for the Museum API
+      description: |-
+        Example description with multiple lines
+
+        Here's a second line!
+      operationId: getExample
+      responses: 
+        '200':
+          description: Success!   
+        '400': 
+          description: Bad Request
   /museum-hours:
     get:
       summary: Get museum hours
@@ -70,7 +83,10 @@ paths:
           $ref: '#/components/responses/NotFound'
     get:
       summary: List special events
-      description: Return a list of upcoming special events at the museum.
+      description: |-
+        Return a list of _upcoming_ special events at the museum.
+            
+        See one you like? Use this API to [buy a ticket](/#tag/Tickets/operation/buyMuseumTickets).  
       operationId: listSpecialEvents
       tags:
         - Events
@@ -706,5 +722,7 @@ tags:
     description: Special events hosted by the museum.
   - name: Tickets
     description: Museum tickets for general entrance or special events.
+  - name: Test
+    description: This is a test tag
 security:
   - MuseumPlaceholderAuth: []

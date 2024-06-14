@@ -22,3 +22,11 @@ rules:
     message: "Example summary must be sentence cased."
     assertions: 
       pattern: /^[A-Z]+[^A-Z]+$/
+  rule/description-end-punctuation:
+    subject:
+      type: any
+      property: description
+    message: "Description must include end punctuation."
+    assertions:
+      # Match a period or an exclamation point optionally followed by whitespace at the end of a string.
+      pattern: /[\.\!]+\s*$/
